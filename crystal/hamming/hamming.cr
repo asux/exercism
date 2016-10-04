@@ -3,8 +3,8 @@ module Hamming
     if sequence1.size != sequence2.size
       raise ArgumentError.new("sequences must have equal size")
     end
-    sequence1.chars.zip(sequence2.chars).select do |pair|
+    sequence1.chars.zip(sequence2.chars).count do |pair|
       pair[0] != pair[1]
-    end.size
+    end
   end
 end
