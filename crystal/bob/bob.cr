@@ -1,11 +1,10 @@
 module Bob
-  def self.hey(sentence : String) : String
-    case sentence
-    when /[0-9A-Z~@#$%^&*() ]+!|[A-Z ]{4,}\??$/
+  def self.hey(message : String)
+    if message.upcase == message && message =~ /[[:alpha:]]/
       "Whoa, chill out!"
-    when /\w+\?$/
+    elsif message.ends_with?("?")
       "Sure."
-    when /^\s*$/
+    elsif message.strip.empty?
       "Fine. Be that way!"
     else
       "Whatever."
